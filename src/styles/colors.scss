@@ -18,5 +18,17 @@
   --white: #fff;
   --blue: #55bcff;
   --gray: #a0a0a0;
-  --bg-footer: #f7fafc
+  --bg-footer: #f7fafc;
+  --text: #333;
+  --text-gray: #333333e6;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
 }

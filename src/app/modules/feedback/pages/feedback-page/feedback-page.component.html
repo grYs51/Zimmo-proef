@@ -1,50 +1,54 @@
-<div class="feedback__container">
-  <form [formGroup]="feedbackForm">
+<div class="feedback">
+  <div class="feedback__container">
+    <form class="feedback__container" [formGroup]="feedbackForm">
+      <div class="feedback__section">
+        <app-feedback-rating content="Hoe eenvoudig kon je je huis online plaatsen?" formControlName="rating"
+          [disabled]="formSubmitted" (ratingChanged)="ratingChanged($event)"></app-feedback-rating>
+      </div>
+
+      <div class="feedback__section" *ngIf="hasRating && !formSubmitted">
+        <!-- make component -->
+        <div class="feedback__text-area">
+          <h3>Geef je graag wat meer uitleg?</h3>
+          <textarea [ngClass]="{ 'feedback__text-area-invalid': errorText }" formControlName="text" rows="6"></textarea>
+          <span class="feedback__text-area-error-message" *ngIf="errorText">
+            {{ errorText }}
+          </span>
+        </div>
+
+        <div class="feedback__submit">
+          <p class="feedback__submit-policy">
+            Wij verwerken uw gegevens conform onze privacy policy.
+          </p>
+          <app-button label="Verzenden" (onClick)="onSubmit()">
+          </app-button>
+        </div>
+      </div>
+      <div *ngIf="formSubmitted">
+        <!-- Alert -->
+        Feedback met succes verzonden!
+      </div>
+    </form>
+
     <div class="feedback__section">
-      <app-feedback-rating content="Hoe eenvoudig kon je je huis online plaatsen?" formControlName="rating"
-        (ratingChanged)="ratingChanged($event)"></app-feedback-rating>
-    </div>
-
-    <div class="feedback__section" *ngIf="hasRating && !formSubmitted">
-      <!-- make component -->
-      <div class="feedback__text-area">
-        <h3>Geef je graag wat meer uitleg?</h3>
-        <textarea [ngClass]="{ 'feedback__text-area-invalid': errorText }" formControlName="text" rows="6"></textarea>
-        <span class="feedback__text-area-error-message" *ngIf="errorText">
-          {{ errorText }}
-        </span>
-      </div>
-
-      <div class="feedback__submit">
-        <p class="feedback__submit-policy">
-          Wij verwerken uw gegevens conform onze privacy policy.
+      <h2>Wat te doen als je je huis zelf verkoopt of verhuurt?</h2>
+      <div class="feedback__section-content">
+        <p>
+          Twijfel je hoe je moet beginnen aan de verkoop of verhuur van je woning?
+          Geen nood. We begrijpen dat dit een spannende periode is en we willen je
+          hier graag bij helpen.
         </p>
-        <app-button label="Verzenden" (onClick)="onSubmit()">
-        </app-button>
+        <p>
+          Daarom gidsen we je door het proces met een overzichtelijk stappenplan. Zo
+          kan je zonder zorgen je woning te koop of te huur aanbieden. Het enige wat
+          je nog moet doen, is beslissen of je wil verhuren of verkopen!
+        </p>
       </div>
-    </div>
-    <div *ngIf="formSubmitted">
-      <!-- Alert -->
-      Feedback met succes verzonden!
-    </div>
-  </form>
 
-  <div class="feedback__section">
-    <h2>Wat te doen als je je huis zelf verkoopt of verhuurt?</h2>
-    <p>
-      Twijfel je hoe je moet beginnen aan de verkoop of verhuur van je woning?
-      Geen nood. We begrijpen dat dit een spannende periode is en we willen je
-      hier graag bij helpen.
-    </p>
-    <p>
-      Daarom gidsen we je door het proces met een overzichtelijk stappenplan. Zo
-      kan je zonder zorgen je woning te koop of te huur aanbieden. Het enige wat
-      je nog moet doen, is beslissen of je wil verhuren of verkopen!
-    </p>
-
-    <div class="feedback__section-button-group">
-      <app-button label="Verkopen" [outline]="true"></app-button>
-      <app-button label="Verhuren" [outline]="true"></app-button>
+      <div class="feedback__section-button-group">
+        <app-button label="Verkoop" [outline]="true"></app-button>
+        <app-button label="Verhuur" [outline]="true"></app-button>
+      </div>
     </div>
   </div>
 </div>

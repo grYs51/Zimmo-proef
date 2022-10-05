@@ -4,10 +4,11 @@
     padding: 2rem 0;
     text-align: center;
 
-    h {
-      font-size: 24px;
+    h3 {
+      font-size: 28px;
       font-weight: 700;
       margin-bottom: 16px;
+      color: var(--text);
     }
   }
 
@@ -30,15 +31,19 @@
       }
 
       .container {
+        padding: 0 28px;
+        text-align: left;
+        font-size: 15px;
+
         &-title {
-          font-size: 20px;
-          font-weight: 700;
-          margin-bottom: 1rem;
+          font-weight: 500;
+          margin-bottom: 16px;
+          color: var(--text-gray);
         }
 
         &-description {
-          font-size: 16px;
           color: var(--gray);
+          font-weight: 350;
           opacity: 0.8;
         }
 
@@ -48,9 +53,11 @@
           text-decoration: none;
           transition: all 0.2s ease-in-out;
           margin-bottom: 16px;
+          font-weight: 500;
 
           &:hover {
             color: var(--orange);
+            cursor: pointer;
           }
         }
       }
