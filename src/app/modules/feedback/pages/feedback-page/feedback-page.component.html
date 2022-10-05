@@ -1,30 +1,30 @@
 <div class="feedback__container">
-  <form [formGroup]="feedbackForm">
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
     <div class="feedback__section">
-      <app-feedback-rating
-        content="Hoe eenvoudig kon je je huis online plaatsen?"
-        formControlName="rating"
-        (ratingChanged)="ratingChanged($event)"
-      ></app-feedback-rating>
+      <app-feedback-rating content="Hoe eenvoudig kon je je huis online plaatsen?" formControlName="rating"
+        (ratingChanged)="ratingChanged($event)"></app-feedback-rating>
     </div>
 
-    <div class="feedback__text-area" *ngIf="hasRating">
-      <h3>Geef je graag wat meer uitleg?</h3>
-      <textarea
-        [ngClass]="{ 'feedback__text-area-invalid': errorText }"
-        formControlName="text"
-        rows="6"
-      ></textarea>
-      <span class="feedback__text-area-error-message" *ngIf="errorText">
-        {{ errorText }}
-      </span>
-    </div>
+    <div class="feedback__section" *ngIf="hasRating && !formSubmitted">
+      <!-- make component -->
+      <div class="feedback__text-area">
+        <h3>Geef je graag wat meer uitleg?</h3>
+        <textarea [ngClass]="{ 'feedback__text-area-invalid': errorText }" formControlName="text" rows="6"></textarea>
+        <span class="feedback__text-area-error-message" *ngIf="errorText">
+          {{ errorText }}
+        </span>
+      </div>
 
-    <div class="feedback__submit">
-      <p class="feedback__submit-policy">
-        Wij verwerken uw gegevens conform onze privacy policy.
-      </p>
-      <button class="feedback__submit-button">Verzenden</button>
+      <div class="feedback__submit">
+        <p class="feedback__submit-policy">
+          Wij verwerken uw gegevens conform onze privacy policy.
+        </p>
+        <button class="feedback__submit-button" type="submit">Verzenden</button>
+      </div>
+    </div>
+    <div *ngIf="formSubmitted">
+      <!-- Alert -->
+      Feedback met succes verzonden!
     </div>
   </form>
   <p>feedback-page works!</p>

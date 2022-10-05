@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { firstValueFrom } from 'rxjs';
+import { FeedbackService } from 'src/app/modules/feedback/services/feedback.service';
 
 @Component({
   selector: 'app-feedback-page',
@@ -8,8 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FeedbackPageComponent implements OnInit {
   feedbackForm!: FormGroup;
-  errorText: string | undefined = 'Dit mag niet leeg zijn!';
-  constructor() {}
+  errorText: string | undefined;
+  formSubmitted: boolean = false;
+  constructor(private feedbackService: FeedbackService) {}
 
   get hasRating() {
     return this.feedbackForm.get('rating')?.value > 0;
@@ -24,6 +27,21 @@ export class FeedbackPageComponent implements OnInit {
   }
 
   ratingChanged(_value: number) {
-    console.log(this.feedbackForm);
+    console.log(_value);
+  }
+
+  onSubmit() {
+    if (!this.feedbackForm.valid) {
+      this.errorText = 'Dit mag niet leeg zijn!';
+      return;
+    }
+
+    firstValueFrom(this.feedbackService.sendFeedback(this.feedbackForm.value))
+      .then(() => {
+        this.formSubmitted = true;
+      })
+      .catch(() => {
+        this.errorText = 'Er ging iets mis, probeer het later nog eens.';
+      });
   }
 }

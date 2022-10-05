@@ -1461,7 +1461,7 @@
     read-package-json-fast "^2.0.3"
     which "^2.0.2"
 
-"@schematics/angular@14.2.4":
+"@schematics/angular@14.2.4", "@schematics/angular@^14.2.4":
   version "14.2.4"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-14.2.4.tgz#025c50144bae1d41cb7f1e362e4437389a7e4559"
   integrity sha512-9n7HyxZvoSR+Ynyvr8oEQ3zy5trSjCQMTF+fZSTCzCBEVHKGxqMyisI6KO4qcGeIQYGXWeBYrMsy9jMQFgK8dQ==
