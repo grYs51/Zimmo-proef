@@ -1,0 +1,22 @@
+<div class="rating__container">
+  <h3>{{ content }}</h3>
+
+  <div class="rating__button-group">
+    <div class="rating__button-item" *ngFor="let option of options">
+      <input
+        [id]="'button-' + option"
+        type="radio"
+        [checked]="option === value"
+        (click)="valueUpdated(option)"
+        [disabled]="disabled"
+      />
+      <label
+        [ngClass]="{ 'rating__button--selected': option === value }"
+        class="rating__button-label rating__button-label-{{ option }}"
+        [for]="'button-' + option"
+      >
+        {{ option }}
+      </label>
+    </div>
+  </div>
+</div>

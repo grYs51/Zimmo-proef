@@ -1,0 +1,64 @@
+.feedback {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 20px 50px;
+  }
+
+  &__rating {
+    margin-top: 60px;
+  }
+
+  &__text-area {
+    text-align: center;
+    width: 100%;
+
+    textarea {
+      width: 100%;
+      resize: none;
+      border-radius: 5px;
+    }
+
+    &-invalid {
+      border: 1px solid var(--red);
+    }
+
+    &-error-message {
+      color: var(--red);
+      float: left;
+      font-style: italic;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+
+    &-policy {
+      font-size: 12px;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
