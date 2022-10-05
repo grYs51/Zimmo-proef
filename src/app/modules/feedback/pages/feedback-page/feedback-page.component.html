@@ -1,5 +1,5 @@
 <div class="feedback__container">
-  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="feedbackForm">
     <div class="feedback__section">
       <app-feedback-rating content="Hoe eenvoudig kon je je huis online plaatsen?" formControlName="rating"
         (ratingChanged)="ratingChanged($event)"></app-feedback-rating>
@@ -19,7 +19,8 @@
         <p class="feedback__submit-policy">
           Wij verwerken uw gegevens conform onze privacy policy.
         </p>
-        <button class="feedback__submit-button" type="submit">Verzenden</button>
+        <app-button label="Verzenden" (onClick)="onSubmit()">
+        </app-button>
       </div>
     </div>
     <div *ngIf="formSubmitted">
@@ -27,5 +28,23 @@
       Feedback met succes verzonden!
     </div>
   </form>
-  <p>feedback-page works!</p>
+
+  <div class="feedback__section">
+    <h2>Wat te doen als je je huis zelf verkoopt of verhuurt?</h2>
+    <p>
+      Twijfel je hoe je moet beginnen aan de verkoop of verhuur van je woning?
+      Geen nood. We begrijpen dat dit een spannende periode is en we willen je
+      hier graag bij helpen.
+    </p>
+    <p>
+      Daarom gidsen we je door het proces met een overzichtelijk stappenplan. Zo
+      kan je zonder zorgen je woning te koop of te huur aanbieden. Het enige wat
+      je nog moet doen, is beslissen of je wil verhuren of verkopen!
+    </p>
+
+    <div class="feedback__section-button-group">
+      <app-button label="Verkopen" [outline]="true"></app-button>
+      <app-button label="Verhuren" [outline]="true"></app-button>
+    </div>
+  </div>
 </div>
