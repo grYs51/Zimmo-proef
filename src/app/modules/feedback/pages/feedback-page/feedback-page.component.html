@@ -9,7 +9,7 @@
       <div class="feedback__section" *ngIf="hasRating && !formSubmitted">
         <!-- make component -->
         <div class="feedback__text-area">
-          <h3>Geef je graag wat meer uitleg?</h3>
+          <h4>Geef je graag wat meer uitleg?</h4>
           <textarea [ngClass]="{ 'feedback__text-area-invalid': errorText }" formControlName="text" rows="6"></textarea>
           <span class="feedback__text-area-error-message" *ngIf="errorText">
             {{ errorText }}
@@ -23,15 +23,16 @@
           <app-button label="Verzenden" (onClick)="onSubmit()">
           </app-button>
         </div>
+
       </div>
-      <div *ngIf="formSubmitted">
+      <div class="feedback__submit-alert" *ngIf="formSubmitted">
         <!-- Alert -->
-        Feedback met succes verzonden!
+        <app-alert type="success" message="Feedback met succes verzonden!"></app-alert>
       </div>
     </form>
 
     <div class="feedback__section">
-      <h2>Wat te doen als je je huis zelf verkoopt of verhuurt?</h2>
+      <h3>Wat te doen als je je huis zelf verkoopt of verhuurt?</h3>
       <div class="feedback__section-content">
         <p>
           Twijfel je hoe je moet beginnen aan de verkoop of verhuur van je woning?
