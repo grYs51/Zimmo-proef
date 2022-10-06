@@ -47,6 +47,10 @@ export class FeedbackRatingComponent implements OnInit, ControlValueAccessor {
   ngOnInit(): void {}
 
   valueUpdated(value: number) {
+    if (this.disabled) {
+      return;
+    }
+
     this.value = value;
     this.ratingChanged.emit(value);
 
