@@ -65,7 +65,7 @@
     }
 
     &-invalid {
-      border: 1px solid var(--red);
+      border: 1px solid var(--red) !important;
     }
 
     &-error-message {

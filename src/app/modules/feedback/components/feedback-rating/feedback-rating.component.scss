@@ -2,7 +2,7 @@
   &__container {
     display: flex;
     height: 85px;
-    width: 650px;
+    width: 600px;
     flex-direction: column;
     align-items: center;
     background-color: var(--blue);
@@ -124,4 +124,22 @@
 
 svg {
   transform: scale(0.75);
+}
+
+@media screen and (max-width: 768px) {
+  .rating {
+    &__container {
+      width: 300px
+    }
+
+    &__button-group {
+      width: 275px;
+    }
+
+    &__button-label {
+      margin-top: -15px;
+      width: 30px;
+      height: 30px;
+    }
+  }
 }

@@ -20,8 +20,7 @@ export class FeedbackPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.feedbackForm = new FormGroup({
-      //TODO: has to change back to 0
-      rating: new FormControl(1),
+      rating: new FormControl(0),
       text: new FormControl('', [Validators.required]),
     });
   }
