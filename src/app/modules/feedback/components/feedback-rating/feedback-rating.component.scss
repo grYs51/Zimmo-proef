@@ -8,7 +8,12 @@
     color: var(--white);
     padding: 15px 40px;
     border-radius: 100px;
+
+    h3 {
+      font-weight: 500;
+    }
   }
+
 
   &__button-group {
     display: flex;
@@ -45,36 +50,77 @@
 
     &-1 {
       background-color: var(--red-light);
-      color: var(--red);
+      fill: var(--red);
     }
 
     &-2 {
       background-color: var(--orange-light);
-      color: var(--orange);
+      fill: var(--orange);
     }
 
     &-3 {
       background-color: var(--yellow-light);
-      color: var(--yellow);
+      fill: var(--yellow);
     }
 
     &-4 {
       background-color: var(--lime-light);
-      color: var(--lime);
+      fill: var(--lime);
     }
 
     &-5 {
       background-color: var(--green-light);
-      color: var(--green);
+      fill: var(--green);
+    }
+
+    &-1:hover {
+      background-color: var(--red);
+      fill: var(--white);
+    }
+
+    &-2:hover {
+      background-color: var(--orange);
+      fill: var(--white);
+    }
+
+    &-3:hover {
+      background-color: var(--yellow);
+      fill: var(--white);
+    }
+
+    &-4:hover {
+      background-color: var(--lime);
+      fill: var(--white);
+    }
+
+    &-5:hover {
+      background-color: var(--green);
+      fill: var(--white);
     }
   }
 
-  &__button--selected {
-    color: var(--white);
+  &__button-selected {
+    fill: var(--white);
     box-shadow: 0 0 10px #0000;
 
     &-1 {
-      color: #fff;
+      background-color: var(--red);
+    }
+
+    &-2 {
+      background-color: var(--orange);
+    }
+
+    &-3 {
+      background-color: var(--yellow);
+    }
+
+    &-4 {
+      background-color: var(--lime);
+    }
+
+    &-5 {
+      background-color: var(--green);
     }
   }
 }
