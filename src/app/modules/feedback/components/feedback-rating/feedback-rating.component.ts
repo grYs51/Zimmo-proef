@@ -26,7 +26,7 @@ export class FeedbackRatingComponent implements OnInit, ControlValueAccessor {
 
   @Output() ratingChanged = new EventEmitter<number>();
 
-  options: number[] = [1, 2, 3, 4, 5];
+  // options: number[] = [1, 2, 3, 4, 5];
   value: number | null = null;
 
   changed: (value: number) => void = () => {};
