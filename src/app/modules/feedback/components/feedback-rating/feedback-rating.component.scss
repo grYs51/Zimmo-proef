@@ -2,7 +2,7 @@
   &__container {
     display: flex;
     height: 85px;
-    width: 600px;
+    width: 300px;
     flex-direction: column;
     align-items: center;
     background-color: var(--blue);
@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 500px;
+    width: 275px;
     margin-top: 20px;
   }
 
@@ -37,10 +37,10 @@
 
   &__button-label {
     position: absolute;
-    margin-top: 20px;
+    margin-top: -15px;
     padding: 10px;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -126,20 +126,20 @@ svg {
   transform: scale(0.75);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .rating {
     &__container {
-      width: 300px
+      width: 600px
     }
 
     &__button-group {
-      width: 275px;
+      width: 500px;
     }
 
     &__button-label {
-      margin-top: -15px;
-      width: 30px;
-      height: 30px;
+      margin-top: 20px;
+      width: 50px;
+      height: 50px;
     }
   }
 }
