@@ -24,9 +24,7 @@ export class FeedbackRatingComponent implements OnInit, ControlValueAccessor {
   @Input() content: string = 'title';
   @Input() disabled: boolean = false;
 
-  @Output() ratingChanged = new EventEmitter<number>();
-
-  // options: number[] = [1, 2, 3, 4, 5];
+  options: number[] = [1, 2, 3, 4, 5];
   value: number | null = null;
 
   changed: (value: number) => void = () => {};
@@ -52,7 +50,6 @@ export class FeedbackRatingComponent implements OnInit, ControlValueAccessor {
     }
 
     this.value = value;
-    this.ratingChanged.emit(value);
 
     this.changed(value);
     this.touched();

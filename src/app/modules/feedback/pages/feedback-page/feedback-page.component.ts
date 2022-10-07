@@ -25,10 +25,6 @@ export class FeedbackPageComponent implements OnInit {
     });
   }
 
-  ratingChanged(_value: number) {
-    console.log(_value);
-  }
-
   onSubmit() {
     if (!this.feedbackForm.valid) {
       this.errorText = 'Dit mag niet leeg zijn!';
@@ -39,8 +35,8 @@ export class FeedbackPageComponent implements OnInit {
       .then(() => {
         this.formSubmitted = true;
       })
-      .catch(() => {
-        this.errorText = 'Er ging iets mis, probeer het later nog eens.';
+      .catch((e) => {
+        console.log(e);
       });
   }
 }

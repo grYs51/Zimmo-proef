@@ -2,15 +2,22 @@
   <div class="feedback__container">
     <form class="feedback__container" [formGroup]="feedbackForm">
       <div class="feedback__section">
-        <app-feedback-rating content="Hoe eenvoudig kon je je huis online plaatsen?" formControlName="rating"
-          [disabled]="formSubmitted" (ratingChanged)="ratingChanged($event)"></app-feedback-rating>
+        <app-feedback-rating
+          content="Hoe eenvoudig kon je je huis online plaatsen?"
+          formControlName="rating"
+          [disabled]="formSubmitted"
+        ></app-feedback-rating>
       </div>
 
       <div class="feedback__section" *ngIf="hasRating && !formSubmitted">
         <!-- make component -->
         <div class="feedback__text-area">
           <h4>Geef je graag wat meer uitleg?</h4>
-          <textarea [ngClass]="{ 'feedback__text-area-invalid': errorText }" formControlName="text" rows="6"></textarea>
+          <textarea
+            [ngClass]="{ 'feedback__text-area-invalid': errorText }"
+            formControlName="text"
+            rows="6"
+          ></textarea>
           <span class="feedback__text-area-error-message" *ngIf="errorText">
             {{ errorText }}
           </span>
@@ -20,14 +27,15 @@
           <p class="feedback__submit-policy">
             Wij verwerken uw gegevens conform onze privacy policy.
           </p>
-          <app-button label="Verzenden" (onClick)="onSubmit()">
-          </app-button>
+          <app-button label="Verzenden" (onClick)="onSubmit()"> </app-button>
         </div>
-
       </div>
       <div class="feedback__submit-alert" *ngIf="formSubmitted">
         <!-- Alert -->
-        <app-alert type="success" message="Feedback met succes verzonden!"></app-alert>
+        <app-alert
+          type="success"
+          message="Feedback met succes verzonden!"
+        ></app-alert>
       </div>
     </form>
 
@@ -35,14 +43,15 @@
       <h3>Wat te doen als je je huis zelf verkoopt of verhuurt?</h3>
       <div class="feedback__section-content">
         <p>
-          Twijfel je hoe je moet beginnen aan de verkoop of verhuur van je woning?
-          Geen nood. We begrijpen dat dit een spannende periode is en we willen je
-          hier graag bij helpen.
+          Twijfel je hoe je moet beginnen aan de verkoop of verhuur van je
+          woning? Geen nood. We begrijpen dat dit een spannende periode is en we
+          willen je hier graag bij helpen.
         </p>
         <p>
-          Daarom gidsen we je door het proces met een overzichtelijk stappenplan. Zo
-          kan je zonder zorgen je woning te koop of te huur aanbieden. Het enige wat
-          je nog moet doen, is beslissen of je wil verhuren of verkopen!
+          Daarom gidsen we je door het proces met een overzichtelijk
+          stappenplan. Zo kan je zonder zorgen je woning te koop of te huur
+          aanbieden. Het enige wat je nog moet doen, is beslissen of je wil
+          verhuren of verkopen!
         </p>
       </div>
 
